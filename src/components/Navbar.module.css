@@ -1,0 +1,36 @@
+html{
+    font-size: 16px;
+}
+
+nav{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    padding: .75rem 1.25rem;
+    background: #222;
+    color: white;
+    column-gap: 2rem;
+
+}
+
+links {
+
+color: white;
+
+}
+
+.quotes {
+    margin-right:1rem;
+
+}
+
+.act{
+ 
+    color: white;
+
+}

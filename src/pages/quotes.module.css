@@ -1,0 +1,38 @@
+html {
+
+    font-size: 16px;
+
+}
+
+.wrapper {
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#663576  ;
+    color: white;
+    width: 100vw;
+    height: max-content;
+    flex-shrink: 0;
+
+
+
+
+
+}
+
+
+.container_quotes {
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: 1fr;
+    gap: 0.5rem;
+
+
+
+}
+
+
