@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import styles from "./addQuote.module.css";
+
 
 function AddQuote(){
 
@@ -30,7 +32,7 @@ function AddQuote(){
 
     return(
 
-        <div>  
+        <div className={styles.wrapper}>  
 
             <form onSubmit={handle_submit}>
 

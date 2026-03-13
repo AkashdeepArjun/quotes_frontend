@@ -13,7 +13,7 @@ html{
 
     background-color:#BCE3D7;
 
-    padding: 0.5rem;
+    padding: 0.25rem;
 
     padding-block: 2rem;
 
@@ -67,4 +67,12 @@ html{
     right: 0.5rem;
 
 
+}
+
+.created{
+    position: absolute;
+    top: 0;
+    left: 25%;
+    color: black;
+    text-wrap-mode:nowrap;
 }

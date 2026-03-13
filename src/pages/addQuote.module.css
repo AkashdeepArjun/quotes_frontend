@@ -1,0 +1,27 @@
+html{
+    font-size: 16px;
+}
+
+
+.wrapper {
+
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    padding: 0.75rem;
+    display: flex;
+    width:40vw;
+    height: 50vh;
+    background-color: lightcoral;
+    justify-content: center;
+    
+
+}
+
+input {
+
+
+    border-radius:16rem;
+
+
+}
