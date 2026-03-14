@@ -6,6 +6,7 @@ import styles from "./quotes.module.css";
 import QuoteCard from "../components/QuoteCard";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
+import Sorting from "../components/Sorting";
 
 function Quotes(){
 
@@ -16,22 +17,21 @@ function Quotes(){
 
     const [user_query, setUserQuery] = useState('');
 
+    const [sortBy,setSortBy]=useState("created_at");
+
+    const [order,setOrder] = useState("DESC");
+
+
     const [limit,setLimit] = useState(3);
 
     const [current_page,setCurrrentPage] = useState(1);
 
-    const  load_data = () => {
-
-
-        api.get("/quotes").then((res)=>setQuotes(res.data));
-
-
-    }
+  
 
     const fetchQuotes = async(search) => {
 
         
-       try{ const server_response =  await api.get(`/quotes?search=${search}&page=${current_page}&limit=${limit}`);
+       try{ const server_response =  await api.get(`/quotes?search=${search}&page=${current_page}&limit=${limit}&sortBy=${sortBy}&order=${order}`);
         setQuotes(server_response.data.data);
         setDataSize(server_response.data.dataset_size);
         }catch(err){
@@ -50,7 +50,7 @@ function Quotes(){
     fetchQuotes(user_query);
 
 
-    },[current_page]);
+    },[current_page,order,sortBy]);
 
   const handle_delete = (id ) =>{
 
@@ -82,6 +82,10 @@ function Quotes(){
 
 
   }
+
+const handle_sort_option = (option) =>{ setSortBy(option)}
+
+const handle_order = (order) => { setOrder(order)}
 
 const handle_update = (id,newQuote) =>{
 
@@ -125,12 +129,15 @@ const delayed_search =  setTimeout(()=>{
 
         <div className={styles.wrapper}>
 
+        <Sorting onOrderSelected={handle_order} onSortOptionsSelected={handle_sort_option} />
 
         
   <Pagination dataset_size={datasize} page_size={limit} OnPageChange={handle_page_update} />
 
 
         <SearchBar onSearchChange={setUserQuery} />
+
+
 
             <div className={styles.container_quotes}> 
                 

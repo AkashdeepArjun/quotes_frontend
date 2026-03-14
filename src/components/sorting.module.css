@@ -1,0 +1,28 @@
+html{
+
+    font-size: 16px;
+
+}
+
+.wrapper {
+
+
+    width: 30vw;
+    
+    background-color: white;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    border: 0.25rem solid yellow;
+    position: relative;
+    left:25%;
+    top: 5%;
+    column-gap: 0.5rem;
+
+
+
+}
+
+

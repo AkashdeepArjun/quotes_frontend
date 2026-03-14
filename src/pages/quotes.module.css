@@ -17,6 +17,8 @@ html {
     height: max-content;
     flex-shrink: 0;
 
+    row-gap: 2rem;
+
     padding: 1rem;
 
 
