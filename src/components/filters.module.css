@@ -1,0 +1,35 @@
+html{
+    font-size: 16px;
+
+}
+
+
+.wrapper {
+
+    display:  flex;
+
+    align-items: center;
+
+    width: 60vw;
+
+    height:10rem;
+
+    border: 0.025rem solid magenta;
+    
+    justify-content: center;
+
+    column-gap: 2rem;
+
+    
+
+
+
+
+
+
+
+}
+
+
+
+

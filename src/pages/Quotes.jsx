@@ -7,9 +7,13 @@ import QuoteCard from "../components/QuoteCard";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
 import Sorting from "../components/Sorting";
+import Filters from "../components/Filters";
 
 function Quotes(){
 
+    const [start_date,setStartDate] = useState('');
+
+    const [end_date ,setEndDate] =  useState('');
 
     const [quotes,setQuotes] = useState([]);
 
@@ -30,8 +34,9 @@ function Quotes(){
 
     const fetchQuotes = async(search) => {
 
-        
-       try{ const server_response =  await api.get(`/quotes?search=${search}&page=${current_page}&limit=${limit}&sortBy=${sortBy}&order=${order}`);
+        console.log(` FEETCH  QUOTES CALLED WITH  START DATE  ${start_date} AND END DATE ${end_date}`); 
+    
+       try{ const server_response =  await api.get(`/quotes?search=${search}&page=${current_page}&limit=${limit}&sortBy=${sortBy}&order=${order}&startDate=${start_date}&endDate=${end_date}`);
         setQuotes(server_response.data.data);
         setDataSize(server_response.data.dataset_size);
         }catch(err){
@@ -50,7 +55,7 @@ function Quotes(){
     fetchQuotes(user_query);
 
 
-    },[current_page,order,sortBy]);
+    },[current_page,order,sortBy,start_date,end_date]);
 
   const handle_delete = (id ) =>{
 
@@ -123,16 +128,32 @@ const delayed_search =  setTimeout(()=>{
 },[user_query]);
 
 
+const handle_filters=(s,e)=>{
+
+
+    setStartDate(s);
+    setEndDate(e);
+
+
+
+}
+
+
+
+
 
 
     return (
 
         <div className={styles.wrapper}>
 
+
+        <Filters onFiltersApply={handle_filters} />
+
         <Sorting onOrderSelected={handle_order} onSortOptionsSelected={handle_sort_option} />
 
         
-  <Pagination dataset_size={datasize} page_size={limit} OnPageChange={handle_page_update} />
+        <Pagination dataset_size={datasize} page_size={limit} OnPageChange={handle_page_update} />
 
 
         <SearchBar onSearchChange={setUserQuery} />
